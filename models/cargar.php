@@ -1,9 +1,9 @@
 <?php
 include "conexion.php";
 $query="SELECT * FROM estudiantes";
-if(isset($_POST['EST_CEDULA'])!= ""){
-    $q=$conn->real_escape_string($_POST['EST_CEDULA']);
-    $query="SELECT * FROM estudiantes WHERE EST_CEDULA LIKE '%".$q."%'";
+if(isset($_POST['CED_EST'])!= ""){
+    $q=$conn->real_escape_string($_POST['CED_EST']);
+    $query="SELECT * FROM estudiantes WHERE CED_EST LIKE '%".$q."%'";
 }
 $buscarEstudiante=$conn->query($query);
 $result=array();

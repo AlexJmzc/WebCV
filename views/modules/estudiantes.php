@@ -21,12 +21,13 @@
             rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
             <tr>
-                <th field="EST_CEDULA" width="50">Cédula</th>
-                <th field="EST_NOMBRE" width="50">Nombre</th>
-                <th field="EST_APELLIDO" width="50">Apellido</th>
-                <th field="EST_DIRECCION" width="50">Dirección</th>
-                <th field="EST_TEL" width="50">Teléfono</th>
-                <th field="EST_SEXO" width="50">Sexo</th>
+                <th field="CED_EST" width="50">Cédula</th>
+                <th field="ID_CURSO_PER" width="50">Nombre</th>
+                <th field="NOM_EST" width="50">Apellido</th>
+                <th field="APE_EST" width="50">Dirección</th>
+                <th field="DIR_EST" width="50">Teléfono</th>
+                <th field="SEXO_EST" width="50">Sexo</th>
+                <th field="ECIVIL_EST" width="50">ECivil</th>
             </tr>
         </thead>
     </table>
@@ -37,29 +38,37 @@
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/universidad/models/acceso.php">
+        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/WebCV/models/acceso.php">
         <input type="hidden" id="op" name="op" value="insertarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
-                <input name="EST_CEDULA" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
+                <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_NOMBRE" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
+                <input name="ID_CUR_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_APELLIDO" class="easyui-textbox" required="true" label="Apellido:" style="width:100%">
+                <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_DIRECCION" class="easyui-textbox" required="true" label="Dirección:" style="width:100%">
+                <input name="APE_EST" class="easyui-textbox" required="true" label="Apellido:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_TEL" class="easyui-textbox" required="true" label="Teléfono:" style="width:100%">
+                <input name="DIR_EST" class="easyui-textbox" required="true" label="Direccion:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-            <input id="EST_SEXO" class="easyui-combobox" name="EST_SEXO" style="width:100%;" data-options="
+            <input id="SEXO_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'sexo',
                     label: 'SEXO:',
+                    labelPosition: 'top'
+                    ">
+            </div>
+            <div style="margin-bottom:10px">
+            <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
+                    valueField: 'id',
+                    textField: 'estado civil',
+                    label: 'Estado Civil:',
                     labelPosition: 'top'
                     ">
             </div>
@@ -67,29 +76,37 @@
     </div>
 
     <div id="dlg1" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'">
-        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/universidad/models/acceso.php">
+        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/WebCV/models/acceso.php">
         <input type="hidden" id="op" name="op" value="editarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
-                <input name="EST_CEDULA" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
+                <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_NOMBRE" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
+                <input name="ID_CUR_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_APELLIDO" class="easyui-textbox" required="true" label="Apellido:" style="width:100%">
+                <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_DIRECCION" class="easyui-textbox" required="true" label="Dirección:" style="width:100%">
+                <input name="APE_EST" class="easyui-textbox" required="true" label="Apellido:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="EST_TEL" class="easyui-textbox" required="true" label="Teléfono:" style="width:100%">
+                <input name="DIR_EST" class="easyui-textbox" required="true" label="Direccion:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-            <input id="EST_SEXO" class="easyui-combobox" name="EST_SEXO" style="width:100%;" data-options="
+            <input id="SEXO_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'sexo',
                     label: 'SEXO:',
+                    labelPosition: 'top'
+                    ">
+            </div>
+            <div style="margin-bottom:10px">
+            <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
+                    valueField: 'id',
+                    textField: 'estado civil',
+                    label: 'Estado Civil:',
                     labelPosition: 'top'
                     ">
             </div>
@@ -198,7 +215,12 @@
     </script>
     <script>
     $(document).ready(function(){
-        $("#EST_SEXO").combobox("reload","sexo.json");
+        $("#SEXO_EST").combobox("reload","sexo.json");
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $("#ECIVIL_EST").combobox("reload","ecivil.json");
     });
     </script>
 </body>

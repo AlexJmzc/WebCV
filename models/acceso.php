@@ -16,13 +16,14 @@ switch($op)
 {
         case 'insertarAlumno':
             header('Content-Type: application/json');
-            $cedula=$_POST['EST_CEDULA'];
-            $nombre=$_POST['EST_NOMBRE'];
-            $apellido=$_POST['EST_APELLIDO'];
-            $direccion=$_POST['EST_DIRECCION'];
-            $telefono=$_POST['EST_TEL'];
-            $sexo=$_POST['EST_SEXO'];
-            $sqlInsert="INSERT INTO estudiantes(EST_CEDULA,EST_NOMBRE,EST_APELLIDO,EST_DIRECCION,EST_TEL,EST_SEXO) VALUES ('$cedula','$nombre','$apellido','$direccion','$telefono','$sexo')";
+            $cedula=$_POST['CED_EST'];
+            $nombre=$_POST['NOM_EST'];
+            $curso=$_POST['ID_CUR_PER'];
+            $apellido=$_POST['APE_EST'];
+            $direccion=$_POST['DIR_EST'];
+            $ecivil=$_POST['ECIVIL_EST'];
+            $sexo=$_POST['SEXO_EST'];
+            $sqlInsert="INSERT INTO estudiantes(CED_EST,ID_CUR_PER,NOM_EST,APE_EST,DIR_EST,SEXO_EST,ECIVIL_EST) VALUES ('$cedula','$curso','$nombre','$apellido','$direccion','$sexo','$ecivil')";
             if($mysqli->query($sqlInsert)===TRUE)
             {
             echo json_encode("Se guardo correctamente");
@@ -38,16 +39,17 @@ switch($op)
         
             case 'editarAlumno':
                 header('Content-Type: application/json');
-                $cedula=$_POST['EST_CEDULA'];
-                $nombre=$_POST['EST_NOMBRE'];
-                $apellido=$_POST['EST_APELLIDO'];
-                $direccion=$_POST['EST_DIRECCION'];
-                $telefono=$_POST['EST_TEL'];
-                $sexo=$_POST['EST_SEXO'];
-                $sqlUpdate="UPDATE estudiantes SET EST_NOMBRE = '$nombre',
-                EST_APELLIDO = '$apellido', EST_DIRECCION = '$direccion',
-                EST_TEL = '$telefono', EST_SEXO = '$sexo'
-                WHERE EST_CEDULA = '$cedula'";
+                $cedula=$_POST['CED_EST'];
+                $nombre=$_POST['NOM_EST'];
+                $curso=$_POST['ID_CUR_PER'];
+                $apellido=$_POST['APE_EST'];
+                $direccion=$_POST['DIR_EST'];
+                $ecivil=$_POST['ECIVIL_EST'];
+                $sexo=$_POST['SEXO_EST'];
+                $sqlUpdate="UPDATE estudiantes SET ID_CUR_PER='$curso',NOM_EST = '$nombre',
+                APE_EST = '$apellido', DIR_EST = '$direccion',
+                SEXO_EST = '$sexo', ECIVIL_EST = '$ecivil'
+                WHERE CED_EST = '$cedula'";
                 if($mysqli->query($sqlUpdate)===TRUE)
                 {
                 echo json_encode("Se actualizo correctamente");
