@@ -4,19 +4,19 @@
 
     <meta charset="UTF-8">
     <title>Basic CRUD Application - jQuery EasyUI CRUD Demo</title>
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.9.11\themes\default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.9.11/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.9.11/themes/color.css">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.9.11/demo/demo.css">
-    <script type="text/javascript" src="jquery-easyui-1.9.11/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery-easyui-1.9.11/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="..\..\jquery-easyui-1.9.11\themes\default\easyui.css">
+    <link rel="stylesheet" type="text/css" href="..\..\jquery-easyui-1.9.11\themes\icon.css">
+    <link rel="stylesheet" type="text/css" href="..\..\jquery-easyui-1.9.11\themes\color.css">
+    <link rel="stylesheet" type="text/css" href="..\..\jquery-easyui-1.9.11\demo\demo.css">
+    <script type="text/javascript" src="..\..\jquery-easyui-1.9.11\jquery.min.js"></script>
+    <script type="text/javascript" src="..\..\jquery-easyui-1.9.11\jquery.easyui.min.js"></script>
 </head>
 <body>
     <h2>Formulario Ingreso Estudiantes</h2>
     
     
     <table id="dg" title="Estudiantes" class="easyui-datagrid" style="width:700px;height:250px"
-    url="models/cargar.php"
+    url="..\..\models\cargar.php"
             toolbar="#toolbar" pagination="true"
             rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
@@ -38,14 +38,14 @@
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/WebCV/models/acceso.php">
+        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
         <input type="hidden" id="op" name="op" value="insertarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
                 <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="ID_CUR_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
+                <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
@@ -67,8 +67,8 @@
             <div style="margin-bottom:10px">
             <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
                     valueField: 'id',
-                    textField: 'estado civil',
-                    label: 'Estado Civil:',
+                    textField: 'estado',
+                    label: 'ESTADO CIVIL:',
                     labelPosition: 'top'
                     ">
             </div>
@@ -76,14 +76,14 @@
     </div>
 
     <div id="dlg1" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'">
-        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px" action="http://localhost/WebCV/models/acceso.php">
+        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
         <input type="hidden" id="op" name="op" value="editarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
                 <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="ID_CUR_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
+                <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
@@ -105,7 +105,7 @@
             <div style="margin-bottom:10px">
             <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
                     valueField: 'id',
-                    textField: 'estado civil',
+                    textField: 'estado',
                     label: 'Estado Civil:',
                     labelPosition: 'top'
                     ">

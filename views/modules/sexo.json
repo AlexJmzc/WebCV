@@ -1,0 +1,13 @@
+[
+    {
+        "id":"Masculino",
+        "sexo":"m"
+
+    },
+    {
+        "id":"Femenino",
+        "sexo":"f"
+
+    }
+    
+]

@@ -12,7 +12,7 @@ if($buscarEstudiante->num_rows > 0){
         array_push($result,$filaMarca);
     }
 }else{
-    $result="No se encontraron marcas";
+    $result="No se encontraron estudiantes";
 }
 
 echo json_encode($result);

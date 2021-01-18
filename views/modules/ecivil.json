@@ -1,0 +1,22 @@
+[
+    {
+        "id":"Casado",
+        "estado":"casado"
+
+    },
+    {
+        "id":"Soltero",
+        "estado":"soltero"
+
+    },
+    {
+        "id":"Divorciado",
+        "estado":"divorciado"
+
+    },
+    {
+        "id":"Viudo",
+        "estado":"viudo"
+
+    }
+]

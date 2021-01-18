@@ -18,12 +18,12 @@ switch($op)
             header('Content-Type: application/json');
             $cedula=$_POST['CED_EST'];
             $nombre=$_POST['NOM_EST'];
-            $curso=$_POST['ID_CUR_PER'];
+            $curso=$_POST['ID_CURSO_PER'];
             $apellido=$_POST['APE_EST'];
             $direccion=$_POST['DIR_EST'];
             $ecivil=$_POST['ECIVIL_EST'];
             $sexo=$_POST['SEXO_EST'];
-            $sqlInsert="INSERT INTO estudiantes(CED_EST,ID_CUR_PER,NOM_EST,APE_EST,DIR_EST,SEXO_EST,ECIVIL_EST) VALUES ('$cedula','$curso','$nombre','$apellido','$direccion','$sexo','$ecivil')";
+            $sqlInsert="INSERT INTO estudiantes(CED_EST,ID_CURSO_PER,NOM_EST,APE_EST,DIR_EST,SEXO_EST,ECIVIL_EST) VALUES ('$cedula','$curso','$nombre','$apellido','$direccion','$sexo','$ecivil')";
             if($mysqli->query($sqlInsert)===TRUE)
             {
             echo json_encode("Se guardo correctamente");
@@ -41,12 +41,12 @@ switch($op)
                 header('Content-Type: application/json');
                 $cedula=$_POST['CED_EST'];
                 $nombre=$_POST['NOM_EST'];
-                $curso=$_POST['ID_CUR_PER'];
+                $curso=$_POST['ID_CURSO_PER'];
                 $apellido=$_POST['APE_EST'];
                 $direccion=$_POST['DIR_EST'];
                 $ecivil=$_POST['ECIVIL_EST'];
                 $sexo=$_POST['SEXO_EST'];
-                $sqlUpdate="UPDATE estudiantes SET ID_CUR_PER='$curso',NOM_EST = '$nombre',
+                $sqlUpdate="UPDATE estudiantes SET ID_CURSO_PER='$curso',NOM_EST = '$nombre',
                 APE_EST = '$apellido', DIR_EST = '$direccion',
                 SEXO_EST = '$sexo', ECIVIL_EST = '$ecivil'
                 WHERE CED_EST = '$cedula'";
