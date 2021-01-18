@@ -12,11 +12,11 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_fetch_array($resultado);
 
 if($filas['PERF_USU']=='Administrador'){ //administrador
-    header("location:..\views\IAdmin.php");
+    header("location:..\IAdmin.php");
 
 }else
 if($filas['PERF_USU']=='Secretaria'){ //cliente
-header("location:..\views\ISecre.php");
+header("location:..\ISecre.php");
 }
 else{
     ?>
