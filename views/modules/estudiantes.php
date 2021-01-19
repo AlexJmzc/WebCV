@@ -57,7 +57,7 @@
                 <input name="DIR_EST" class="easyui-textbox" required="true" label="Direccion:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-            <input id="SEXO_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
+            <input id="SEX_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'sexo',
                     label: 'SEXO:',
@@ -103,7 +103,7 @@
                     ">
             </div>
             <div style="margin-bottom:10px">
-            <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
+            <input id="ESCIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'estado',
                     label: 'Estado Civil:',
@@ -213,15 +213,30 @@
             }
         }        
     </script>
+    
     <script>
     $(document).ready(function(){
-        $("#SEXO_EST").combobox("reload","sexo.json");
+        $("#SEXO_EST").combobox("reload","../../json/sexo.json");
     });
     </script>
+
     <script>
     $(document).ready(function(){
-        $("#ECIVIL_EST").combobox("reload","ecivil.json");
+        $("#ECIVIL_EST").combobox("reload","../../json/ecivil.json");
     });
     </script>
+
+<script>
+    $(document).ready(function(){
+        $("#SEX_EST").combobox("reload","../../json/sexo.json");
+    });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+        $("#ESCIVIL_EST").combobox("reload","../../json/ecivil.json");
+    });
+    </script>
+
 </body>
 </html>
