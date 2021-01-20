@@ -61,14 +61,13 @@ switch($op)
                 $mysqli->close();
             break;
 
-            case 'deleteMarca':
+            case 'eliminarAlumno':
                 header('Content-Type: application/json');
-                $codigo=$_POST['MAR_CODIGO'];
-                if(isset($codigo)){
-                $sqlDelete="DELETE FROM marca WHERE MAR_CODIGO = $codigo";
-                 $resultado= $mysqli->query($sqlDelete);
-                 echo json_encode(array("correcto" => $resultado));
-            }
+                $cedula=$_POST['CED_EST'];
+                $sqlDelete="DELETE FROM estudiantes WHERE CED_EST = '$cedula'";
+                $resultado= $mysqli->query($sqlDelete);
+                echo json_encode(array("correcto" => $resultado));
+            
               
             break;
 }

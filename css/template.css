@@ -4,6 +4,9 @@ header{
     text-align:center;
     padding:5px;
 }
+
+
+
 nav{
     position:relative;
     margin:auto;
@@ -11,12 +14,22 @@ nav{
     height:auto;
     background:black;
 }
+
+div{
+    text-align: center;
+   
+}
 nav ul{
     position:relative;
     margin:auto;
     width:50%;
     text-align:center;
    
+}
+
+h2{
+    text-align: center;
+
 }
 nav ul li{
     display:inline-block;
@@ -31,4 +44,9 @@ nav ul li a{
 section{
     position:relative;
     padding:20px
+}
+
+body{
+    text-align: center;
+  
 }

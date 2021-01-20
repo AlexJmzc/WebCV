@@ -10,12 +10,41 @@
     <link rel="stylesheet" type="text/css" href="..\..\jquery-easyui-1.9.11\demo\demo.css">
     <script type="text/javascript" src="..\..\jquery-easyui-1.9.11\jquery.min.js"></script>
     <script type="text/javascript" src="..\..\jquery-easyui-1.9.11\jquery.easyui.min.js"></script>
+    <link rel=StyleSheet href="../../css/template.css" typr="text/css">
 </head>
 <body>
+<header>
+        <h1>LOGOTIPO</h1>
+        </header> 
+
+        <div>
+
+
+        </div>
+        <nav>
+            <ul>
+                <li> <a href="inicio.php"> Inicio</a> </li>
+                <li> <a href="nosotros.php"> Nosotros</a> </li>
+                <li> <a href="estudiantes.php"> Servicios</a> </li>
+                <li> <a href="contactanos.php"> Contactenos</a> </li>
+                <br>
+                <li> <a href="../..\models\logout.php"> Cerrar sesión</a> </li>
+               
+            
+            </ul>
+        </nav>
+        <br><br>
+      
+        <?php
+            session_start();
+            echo "BIENVENIDO/A ";
+            echo $_SESSION['nom'];
+        ?>
+          <br><br><br><br>
     <h2>Formulario Ingreso Estudiantes</h2>
     
-    
-    <table id="dg" title="Estudiantes" class="easyui-datagrid" style="width:700px;height:250px"
+    <div style="text-align:center">
+    <table id="dg" title="Estudiantes" class="easyui-datagrid"  style="width:auto;height:350px;margin-left:auto;margin-right:auto;" 
     url="..\..\models\cargar.php"
             toolbar="#toolbar" pagination="true"
             rownumbers="true" fitColumns="true" singleSelect="true">
@@ -31,10 +60,12 @@
             </tr>
         </thead>
     </table>
+    </div>
+  
     <div id="toolbar">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Nuevo Estudiante</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar Estudiante</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Eliminar Estudiante</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteUser()">Eliminar Estudiante</a>
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
@@ -42,7 +73,7 @@
         <input type="hidden" id="op" name="op" value="insertarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
-                <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
+                <input name="CED_EST" class="easyui-textbox"  required="true" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
@@ -75,12 +106,12 @@
         </form>
     </div>
 
-    <div id="dlg1" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'">
-        <form id="fm1" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
+    <div id="dlg1" name="dlg1" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons1'">
+        <form id="fm1" name="dlg1" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
         <input type="hidden" id="op" name="op" value="editarAlumno">
             <h3>Datos Estudiante</h3>
             <div style="margin-bottom:10px">
-                <input name="CED_EST" class="easyui-textbox" required="true" label="Cédula:" style="width:100%">
+                <input name="CED_EST" class="easyui-textbox" editable="false" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
@@ -106,10 +137,22 @@
             <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'estado',
-                    label: 'Estado Civil:',
+                    label: 'ESTADO CIVIL:',
                     labelPosition: 'top'
                     ">
             </div>
+        </form>
+    </div>
+
+    <div id="dlg2" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons2'">
+        <form id="fm2" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
+        <input type="hidden" id="op" name="op" value="eliminarAlumno">
+            <h3>¿Desea eliminar al estudiante?</h3>
+            <div style="margin-bottom:10px">
+                <input name="CED_EST" class="easyui-textbox" editable="false" label="Cédula:" style="width:100%">
+            </div>
+            
+            
         </form>
     </div>
 
@@ -124,6 +167,12 @@
     <div id="dlg-buttons1">
         <a href="#" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="submitForm1()" style="width:90px">Guardar</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')" style="width:90px">Cancel</a>
+    </div>
+
+    
+    <div id="dlg-buttons2">
+        <a href="#" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="submitForm2()" style="width:90px">Confirmar</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg2').dialog('close')" style="width:90px">Cancelar</a>
     </div>
 
 
@@ -193,24 +242,28 @@
             });
         }
 
-        function destroyUser(){
+        function submitForm2(){
+            $('#fm2').form("submit");
+            $('#fm2').form({
+                success:function(data){
+                    console.log(data);
+                    if(data.indexOf("ERROR")!==-1){
+                        $.messager.alert("ERROR",data,"ERROR");
+                    }else{
+                        $.messager.alert(data);
+                    }
+                }
+            });
+        }
+
+        function deleteUser(){
             var row = $('#dg').datagrid('getSelected');
             if (row){
-                $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
-                    if (r){
-                        $.post('destroy_user.php',{id:row.id},function(result){
-                            if (result.success){
-                                $('#dg').datagrid('reload');    // reload the user data
-                            } else {
-                                $.messager.show({    // show error message
-                                    title: 'Error',
-                                    msg: result.errorMsg
-                                });
-                            }
-                        },'json');
-                    }
-                });
+                $('#dlg2').dialog('open').dialog('center').dialog('setTitle','Edit User');
+                $('#fm2').form('load',row);
+                url = 'update_user.php?id='+row.id;
             }
+            
         }        
     </script>
     <script>
