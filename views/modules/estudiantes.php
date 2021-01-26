@@ -85,10 +85,10 @@
         <thead>
             <tr>
                 <th field="CED_EST" width="50">Cédula</th>
-                <th field="ID_CURSO_PER" width="50">Nombre</th>
-                <th field="NOM_EST" width="50">Apellido</th>
-                <th field="APE_EST" width="50">Dirección</th>
-                <th field="DIR_EST" width="50">Teléfono</th>
+                <th field="ID_CURSO_PER" width="50">Curso</th>
+                <th field="NOM_EST" width="50">Nombre</th>
+                <th field="APE_EST" width="50">Apellido</th>
+                <th field="DIR_EST" width="50">Dirección</th>
                 <th field="SEXO_EST" width="50">Sexo</th>
                 <th field="ECIVIL_EST" width="50">ECivil</th>
             </tr>
