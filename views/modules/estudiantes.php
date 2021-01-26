@@ -284,7 +284,7 @@ jQuery('.soloNumeros').keypress(function (tecla) {
     <script type="text/javascript">
         var url;
         function newUser(){
-            $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle','Nuevo estudiante');
             $('#fm').form('load');
             url = 'save_user.php';
         }
@@ -292,7 +292,7 @@ jQuery('.soloNumeros').keypress(function (tecla) {
         function editUser(){
             var row = $('#dg').datagrid('getSelected');
             if (row){
-                $('#dlg1').dialog('open').dialog('center').dialog('setTitle','Edit User');
+                $('#dlg1').dialog('open').dialog('center').dialog('setTitle','Editar estudiante');
                 $('#fm1').form('load',row);
                 url = 'update_user.php?id='+row.id;
             }
@@ -362,7 +362,7 @@ jQuery('.soloNumeros').keypress(function (tecla) {
         function deleteUser(){
             var row = $('#dg').datagrid('getSelected');
             if (row){
-                $('#dlg2').dialog('open').dialog('center').dialog('setTitle','Edit User');
+                $('#dlg2').dialog('open').dialog('center').dialog('setTitle','Eliminar estudiante');
                 $('#fm2').form('load',row);
                 url = 'update_user.php?id='+row.id;
             }
