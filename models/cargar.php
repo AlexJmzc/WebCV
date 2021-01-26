@@ -14,6 +14,17 @@ if($buscarEstudiante->num_rows > 0){
 }else{
     $result="No se encontraron estudiantes";
 }
-
 echo json_encode($result);
+
+if (isset($_POST['buscador'])) {
+    $buscar=$_POST["buscarr"];
+        $sql = "select * from 
+        estudiantes e, cursos c
+        where 
+        and e.ID_CURSO_PER = c.ID_CURSO
+        and e.EST_APE like '%".$buscar."%'
+        order by CED_EST ";
+
+        $resultado = mysqli_query($conn, $sql);
+}
 ?>
