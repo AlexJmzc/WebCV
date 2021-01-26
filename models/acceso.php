@@ -27,7 +27,6 @@ switch($op)
             if($mysqli->query($sqlInsert)===TRUE)
             {
             echo json_encode("Se guardo correctamente");
-            echo $sqlInsert;
             }
             else
             {

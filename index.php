@@ -18,9 +18,6 @@
                 
                 if($perfil=='Administrador'){
                    
-                   
-                    echo "Bienvenido/a ";
-                    echo $_SESSION['nom'];
                     ?>
                         <nav>
                         <ul>
@@ -30,9 +27,13 @@
                         <li> <a href="views\modules\contactanos.php"> Contactenos</a> </li>
                         <li> <a href="models\logout.php"> Cerrar sesión</a> </li>
                        
-                    
                     </ul>
                 </nav>
+
+                <?php
+                                    echo "<strong>Bienvenido/a </strong>";
+                                    echo "<strong>".$_SESSION['nom']."</strong>";
+                ?>
                 <?php
                 }else{
                     
