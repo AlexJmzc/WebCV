@@ -1,22 +1,22 @@
 [
     {
         "id":"Casado",
-        "estado":"casado"
+        "estado":"Casado"
 
     },
     {
         "id":"Soltero",
-        "estado":"soltero"
+        "estado":"Soltero"
 
     },
     {
         "id":"Divorciado",
-        "estado":"divorciado"
+        "estado":"Divorciado"
 
     },
     {
         "id":"Viudo",
-        "estado":"viudo"
+        "estado":"Viudo"
 
     }
 ]

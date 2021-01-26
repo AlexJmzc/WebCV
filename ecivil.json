@@ -1,27 +1,22 @@
 [
     {
-        "id":"1",
-        "estado":"casado"
+        "id":"Casado",
+        "estado":"Casado"
 
     },
     {
-        "id":"2",
-        "estado":"soltero"
+        "id":"Soltero",
+        "estado":"Soltero"
 
     },
     {
-        "id":"3",
-        "estado":"unido"
+        "id":"Divorciado",
+        "estado":"Divorciado"
 
     },
     {
-        "id":"4",
-        "estado":"divorciado"
-
-    },
-    {
-        "id":"5",
-        "estado":"viudo"
+        "id":"Viudo",
+        "estado":"Viudo"
 
     }
 ]

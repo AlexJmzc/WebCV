@@ -8,7 +8,7 @@
     <body>
 
         <header>
-        <h1>LOGOTIPO</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Escudo_de_la_Universidad_T%C3%A9cnica_de_Ambato.png">
         </header> 
 
         <?php
@@ -28,8 +28,6 @@
                         <li> <a href="views\modules\nosotros.php"> Nosotros</a> </li>
                         <li> <a href="estudiantes.php"> Servicios</a> </li>
                         <li> <a href="views\modules\contactanos.php"> Contactenos</a> </li>
-                        
-                        <br>
                         <li> <a href="models\logout.php"> Cerrar sesión</a> </li>
                        
                     
@@ -46,7 +44,6 @@
                     <li> <a href="views\modules\inicio.php"> Inicio</a> </li>
                     <li> <a href="views\modules\nosotros.php"> Nosotros</a> </li>
                     <li> <a href="views\modules\contactanos.php"> Contactenos</a> </li>
-                    <br>
                     <li> <a href="models\logout.php"> Cerrar sesión</a> </li>
                    
                 
@@ -67,7 +64,6 @@
                     <li> <a href="views\modules\inicio.php"> Inicio</a> </li>
                     <li> <a href="views\modules\nosotros.php"> Nosotros</a> </li>
                     <li> <a href="views\modules\contactanos.php"> Contactenos</a> </li>
-                    <br>
                     <li> <a href="views\modules\login.php"> Iniciar Sesión</a> </li>
                    
                 
