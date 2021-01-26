@@ -120,6 +120,7 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Nuevo Estudiante</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar Estudiante</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteUser()">Eliminar Estudiante</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="reportes()">REPORTES</a>
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
@@ -230,8 +231,9 @@
     </div>
 
 
-
-    
+<div>
+<a href="../../reportes.php" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="submitForm()" style="width:90px">Reportes</a>
+</div>    
     <script type="text/javascript">
         var url;
         function newUser(){
@@ -318,7 +320,8 @@
                 url = 'update_user.php?id='+row.id;
             }
             
-        }        
+        }      
+
     </script>
     <script>
     $(document).ready(function(){
@@ -330,5 +333,6 @@
         $("#ECIVIL_EST").combobox("reload","ecivil.json");
     });
     </script>
+
 </body>
 </html>

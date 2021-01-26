@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -20,7 +22,7 @@
             <ul>
                 <li> <a href="inicio.php"> Inicio</a> </li>
                 <li> <a href="nosotros.php"> Nosotros</a> </li>
-                <li> <a href="estudiantes.php"> Sercicios</a> </li>
+                <li> <a href="estudiantes.php"> Servicios</a> </li>
                 <li> <a href="contactanos.php"> Contactenos</a> </li>
                 <br>
                 <li> <a href="../../models\logout.php"> Cerrar sesión</a> </li>
