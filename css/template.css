@@ -12,7 +12,8 @@ nav{
     margin:auto;
     width:100%;
     height:auto;
-    background:black;
+    background:rgba(197, 11, 11, 0.979);
+    text-align: center;
 }
 
 div{

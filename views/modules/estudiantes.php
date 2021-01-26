@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-        <h1>LOGOTIPO</h1>
+<h1><img id="UTA" img src="../../images/UTA.png" width="150" height="150"></h1>
         </header> 
 
         <div>
@@ -44,8 +44,9 @@
 
     <form method="post" >
         <input type="text" name="buscarr" >
-        <input type="submit" name="buscador" value="buscador">
+        <input type="submit" name="buscador" value="Buscar">
     </form>
+    <br><br>
 
     <h2>Formulario Ingreso Estudiantes</h2>
 
@@ -76,7 +77,39 @@
         }
      
      ?>
-    
+   
+   
+
+
+   <script>
+jQuery('.soloNumeros').keypress(function (tecla) {
+  if (tecla.charCode < 48 || tecla.charCode > 57) return false;
+});
+
+    </script>
+
+
+<script>
+  function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37, 39, 46],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+</script>
+
     <div style="text-align:center">
 
     <table id="dg" title="Estudiantes" class="easyui-datagrid"  style="width:auto;height:350px;margin-left:auto;margin-right:auto;" 
@@ -100,7 +133,7 @@
              ?>
             <tr>
                 <td><?php echo $filas['CED_EST']?></td>
-                <td><?php echo $filas['NOM_CUR']?></td>
+                <td><?php echo $filas['ID_CURSO_PER']?></td>
                 <td><?php echo $filas['NOM_EST']?></td>
                 <td><?php echo $filas['APE_EST']?></td>
                 <td><?php echo $filas['DIR_EST']?></td>
@@ -120,19 +153,27 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Nuevo Estudiante</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar Estudiante</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteUser()">Eliminar Estudiante</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="reportes()">REPORTES</a>
+        <a href="../../phpjasperxml/index.php" class="easyui-linkbutton" iconCls="icon-search" plain="true" >Reporte Jasper</a>
+        <a href="../../reportes.php" class="easyui-linkbutton" iconCls="icon-search" plain="true" >Reporte FPDF</a>
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" action="../../models/acceso.php">
         <input type="hidden" id="op" name="op" value="insertarAlumno">
             <h3>Datos Estudiante</h3>
+            
             <div style="margin-bottom:10px">
-                <input name="CED_EST" class="easyui-textbox"  required="true" label="Cédula:" style="width:100%">
+                <input name="CED_EST" type="text"  class="easyui-textbox" label="Cédula:" required="true" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
+            <input id="ID_CURSO_PER" class="easyui-combobox" name="ID_CURSO_PER" style="width:100%;" data-options="
+                    valueField: 'id',
+                    textField: 'estado',
+                    label: 'CURSO:',
+                    labelPosition: 'top'
+                    ">
             </div>
+            <br>
             <div style="margin-bottom:10px">
                 <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
             </div>
@@ -169,8 +210,14 @@
                 <input name="CED_EST" class="easyui-textbox" editable="false" label="Cédula:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="ID_CURSO_PER" class="easyui-textbox" required="true" label="Curso:" style="width:100%">
+            <input id="ID_CUR_PER" class="easyui-combobox" name="ID_CURSO_PER" style="width:100%;" data-options="
+                    valueField: 'id',
+                    textField: 'estado',
+                    label: 'CURSO:',
+                    labelPosition: 'top'
+                    ">
             </div>
+            <br>
             <div style="margin-bottom:10px">
                 <input name="NOM_EST" class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
             </div>
@@ -181,7 +228,7 @@
                 <input name="DIR_EST" class="easyui-textbox" required="true" label="Direccion:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-            <input id="SEXO_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
+            <input id="SEX_EST" class="easyui-combobox" name="SEXO_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'sexo',
                     label: 'SEXO:',
@@ -189,7 +236,7 @@
                     ">
             </div>
             <div style="margin-bottom:10px">
-            <input id="ECIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
+            <input id="ESCIVIL_EST" class="easyui-combobox" name="ECIVIL_EST" style="width:100%;" data-options="
                     valueField: 'id',
                     textField: 'estado',
                     label: 'ESTADO CIVIL:',
@@ -232,7 +279,7 @@
 
 
 <div>
-<a href="../../reportes.php" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="submitForm()" style="width:90px">Reportes</a>
+
 </div>    
     <script type="text/javascript">
         var url;
@@ -328,9 +375,34 @@
         $("#SEXO_EST").combobox("reload","sexo.json");
     });
     </script>
+
     <script>
     $(document).ready(function(){
         $("#ECIVIL_EST").combobox("reload","ecivil.json");
+    });
+    </script>
+
+<script>
+    $(document).ready(function(){
+        $("#SEX_EST").combobox("reload","sexo.json");
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $("#ESCIVIL_EST").combobox("reload","ecivil.json");
+    });
+    </script>
+
+<script>
+    $(document).ready(function(){
+        $("#ID_CURSO_PER").combobox("reload","cursos.json");
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $("#ID_CUR_PER").combobox("reload","cursos.json");
     });
     </script>
 

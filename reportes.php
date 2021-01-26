@@ -39,7 +39,7 @@
     }
 
     require 'models/conexion.php';
-    $consulta="SELECT * FROM estudiantes";
+    $consulta="SELECT * FROM estudiantes WHERE ID_CURSO_PER = 1";
     $resultado= $mysqli->query($consulta);
 
     $pdf = new PDF();

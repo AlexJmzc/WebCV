@@ -10,7 +10,7 @@
     <body>
 
         <header>
-        <h1>LOGOTIPO</h1>
+        <h1><img id="UTA" img src="../../images/UTA.png" width="150" height="150"></h1>
         </header> 
 
 

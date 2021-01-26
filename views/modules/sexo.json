@@ -1,12 +1,12 @@
 [
     {
         "id":"Masculino",
-        "sexo":"m"
+        "sexo":"Masculino"
 
     },
     {
         "id":"Femenino",
-        "sexo":"f"
+        "sexo":"Femenino"
 
     }
     
