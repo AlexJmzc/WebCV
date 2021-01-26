@@ -41,11 +41,45 @@
             echo $_SESSION['nom'];
         ?>
           <br><br><br><br>
+
+    <form method="post" >
+        <input type="text" name="buscarr" >
+        <input type="submit" name="buscador" value="buscador">
+    </form>
+
     <h2>Formulario Ingreso Estudiantes</h2>
+
+    <?php
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $dbname="base_uta";
+        $conns= mysqli_connect($servername,$username,$password,$dbname);
+
+          if (isset($_POST['buscador'])) {
+            $buscar=$_POST["buscarr"];
+                $sql = "select * from estudiantes e, cursos c
+                 where 
+                 e.ID_CURSO_PER = c.ID_CURSO
+                 AND e.APE_EST LIKE '%".$buscar."%'
+                 order by CED_EST";
+        
+                $resultado = mysqli_query($conns, $sql);
+        }else{
+            
+                $sql = "select * from estudiantes e, cursos c
+                 where 
+                 e.ID_CURSO_PER = c.ID_CURSO
+                 order by CED_EST";
+        
+            $resultado = mysqli_query($conns, $sql);
+        }
+     
+     ?>
     
     <div style="text-align:center">
+
     <table id="dg" title="Estudiantes" class="easyui-datagrid"  style="width:auto;height:350px;margin-left:auto;margin-right:auto;" 
-    url="..\..\models\cargar.php"
             toolbar="#toolbar" pagination="true"
             rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
@@ -59,8 +93,28 @@
                 <th field="ECIVIL_EST" width="50">ECivil</th>
             </tr>
         </thead>
+        <tbody>
+            <?php 
+                while ($filas = mysqli_fetch_assoc($resultado)) 
+                {
+             ?>
+            <tr>
+                <td><?php echo $filas['CED_EST']?></td>
+                <td><?php echo $filas['NOM_CUR']?></td>
+                <td><?php echo $filas['NOM_EST']?></td>
+                <td><?php echo $filas['APE_EST']?></td>
+                <td><?php echo $filas['DIR_EST']?></td>
+                <td><?php echo $filas['SEXO_EST']?></td>
+                <td><?php echo $filas['ECIVIL_EST']?></td>
+            </tr>
+            <?php 
+                }
+             ?>
+        </tbody>
     </table>
+
     </div>
+
   
     <div id="toolbar">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Nuevo Estudiante</a>
